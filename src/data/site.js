@@ -1,11 +1,10 @@
 // All content sourced from the existing dramolmourya.com website.
 
 export const nav = [
-  { label: "Home", href: "#home" },
+  { label: "Home", href: "/#home" },
   { label: "About", href: "/about" },
-  { label: "Programs", href: "#programs" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Contact us", href: "#contact" },
+  { label: "Programs", href: "/programs" },
+  { label: "Reviews", href: "/reviews" },
 ];
 
 export const hero = {
@@ -19,11 +18,11 @@ export const hero = {
     "Best Real Estate Coach in India & Asia, Helping Real Estate Agents, Builders, Developers, Investors and Entrepreneurs Build Wealth Through Real Estate.",
   primaryCta: {
     label: "Start your Transformation",
-    href: "#contact",
+    href: "/#contact",
   },
   secondaryCta: {
     label: "Watch Free Training",
-    href: "#media",
+    href: "/#media",
   },
 };
 
@@ -98,7 +97,7 @@ export const programs = {
   title: "The RGC Growth Ecosystem",
   cta: {
     label: "Get Started Today",
-    href: "#contact",
+    href: "/#contact",
   },
   items: [
     {
@@ -141,7 +140,7 @@ export const workshop = {
     "Stop working day and night with zero systems, running behind deals, and guessing your next step. Join this live online class to learn the exact step-by-step formulas that have helped over 3 Lakh property professionals grow their businesses.",
   cta: {
     label: "Register for Workshop",
-    href: "#contact",
+    href: "/#contact",
   },
   points: [
     {

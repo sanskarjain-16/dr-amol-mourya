@@ -1,36 +1,20 @@
 export default function Button({
   children,
-  href,
-  variant = "primary",
+  variant = "gold",
   className = "",
   ...props
 }) {
-  const baseStyles =
-    "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300";
+  const base =
+    "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-200 active:scale-[0.98]";
 
   const variants = {
-    primary:
-      "bg-[#17171A] text-white hover:bg-[#C79A45] hover:text-[#17171A]",
-
-    secondary:
-      "border border-[#17171A] text-[#17171A] hover:bg-[#17171A] hover:text-white",
-
-    gold:
-      "bg-[#C79A45] text-[#17171A] hover:bg-[#17171A] hover:text-white",
-
-    light:
-      "bg-white text-[#17171A] hover:bg-[#C79A45]",
+    gold: "bg-[image:var(--gradient-gold)] text-ink shadow-soft hover:shadow-lift hover:brightness-105",
+    ink: "bg-primary text-primary-foreground shadow-soft hover:shadow-lift hover:brightness-110",
+    outline: "border border-border bg-card text-foreground hover:border-gold hover:bg-secondary",
+    ghostLight: "border border-ink-foreground/25 text-ink-foreground hover:bg-ink-foreground/10",
   };
 
-  const classes = `${baseStyles} ${variants[variant]} ${className}`;
-
-  if (href) {
-    return (
-      <a href={href} className={classes} {...props}>
-        {children}
-      </a>
-    );
-  }
+  const classes = [base, variants[variant], className].filter(Boolean).join(" ");
 
   return (
     <button className={classes} {...props}>

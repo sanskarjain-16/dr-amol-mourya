@@ -1,32 +1,41 @@
+import { Reveal } from "../Reveal";
+
 export default function SectionHeading({
   eyebrow,
   title,
-  description,
+  intro,
   align = "left",
+  tone = "dark",
   className = "",
 }) {
-  const alignment =
-    align === "center"
-      ? "items-center text-center"
-      : "items-start text-left";
+  const containerClasses = [
+    "max-w-2xl",
+    align === "center" ? "mx-auto text-center" : "",
+    tone === "light" ? "text-ink-foreground" : "",
+    className,
+  ].filter(Boolean).join(" ");
+
+  const eyebrowClasses = [
+    "eyebrow",
+    tone === "light" ? "text-gold-soft" : "text-accent",
+  ].filter(Boolean).join(" ");
+
+  const introClasses = [
+    "mt-4 text-[0.975rem] leading-relaxed",
+    tone === "light" ? "text-ink-foreground/70" : "text-muted-foreground",
+  ].filter(Boolean).join(" ");
 
   return (
-    <div className={`flex max-w-3xl flex-col ${alignment} ${className}`}>
-      {eyebrow && (
-        <span className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-[#C79A45]">
-          {eyebrow}
-        </span>
-      )}
-
-      <h2 className="text-3xl font-semibold leading-tight tracking-tight text-[#17171A] sm:text-4xl lg:text-5xl">
+    <Reveal className={containerClasses}>
+      {eyebrow ? (
+        <p className={eyebrowClasses}>{eyebrow}</p>
+      ) : null}
+      <h2 className="mt-3 text-3xl leading-tight text-balance sm:text-4xl lg:text-[2.75rem]">
         {title}
       </h2>
-
-      {description && (
-        <p className="mt-5 text-base leading-7 text-[#6B6B73] sm:text-lg sm:leading-8">
-          {description}
-        </p>
-      )}
-    </div>
+      {intro ? (
+        <p className={introClasses}>{intro}</p>
+      ) : null}
+    </Reveal>
   );
 }

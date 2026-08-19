@@ -3,6 +3,7 @@ import { ArrowRight, PlayCircle } from 'lucide-react'
 import { hero } from '../../../data/site'
 import Container from '../../ui/Container'
 import ButtonLink from '../../ui/ButtonLink'
+import { Reveal } from '../../Reveal'
 
 import portrait from '../../../assets/images/amol-portrait.png'
 
@@ -10,7 +11,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate overflow-hidden bg-[#111111] pt-20 text-white sm:pt-24"
+      className="relative isolate overflow-hidden bg-ink pt-20 text-white sm:pt-24"
     >
       {/* Background glow */}
       <div
@@ -27,61 +28,61 @@ export default function Hero() {
         <div className="mx-auto grid w-full items-center gap-10 py-10 pb-16 sm:gap-12 sm:py-14 sm:pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-16 lg:pb-24">
 
           {/* Content */}
-          <div className="animate-fade-in">
+          {/* Content */}
+          <div>
+            <Reveal delay={0}>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#d8b56a] sm:text-sm">
+                {hero.eyebrow}
+              </p>
+            </Reveal>
 
-            {/* Eyebrow */}
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#d8b56a] sm:text-sm">
-              {hero.eyebrow}
-            </p>
+            <Reveal delay={100}>
+              <h1 className="mt-4 max-w-3xl text-[2.6rem] font-semibold leading-[1.03] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+                {hero.name}
+              </h1>
+            </Reveal>
 
-            {/* Name */}
-            <h1 className="mt-4 max-w-3xl text-[2.6rem] font-semibold leading-[1.03] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-              {hero.name}
-            </h1>
+            <Reveal delay={200}>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
+                {hero.mission}
+              </p>
 
-            {/* Mission */}
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
-              {hero.mission}
-            </p>
+              <div className="mt-6 inline-flex items-center rounded-full border border-[#d8b56a]/40 bg-[#d8b56a]/10 px-4 py-2 text-xs font-semibold tracking-wide text-[#f0d58c] sm:text-sm">
+                {hero.badge}
+              </div>
+            </Reveal>
 
-            {/* Badge */}
-            <div className="mt-6 inline-flex items-center rounded-full border border-[#d8b56a]/40 bg-[#d8b56a]/10 px-4 py-2 text-xs font-semibold tracking-wide text-[#f0d58c] sm:text-sm">
-              {hero.badge}
-            </div>
+            <Reveal delay={300}>
+              <h2 className="mt-5 max-w-2xl text-2xl font-medium leading-snug tracking-[-0.015em] text-white sm:text-3xl lg:text-4xl">
+                {hero.headline}
+              </h2>
 
-            {/* Headline */}
-            <h2 className="mt-5 max-w-2xl text-2xl font-medium leading-snug tracking-[-0.015em] text-white sm:text-3xl lg:text-4xl">
-              {hero.headline}
-            </h2>
-
-            {/* Description */}
-            <p className="mt-5 max-w-xl text-[0.95rem] leading-relaxed text-white/65 sm:text-base">
-              {hero.description}
-            </p>
+              <p className="mt-5 max-w-xl text-[0.95rem] leading-relaxed text-white/65 sm:text-base">
+                {hero.description}
+              </p>
+            </Reveal>
 
             {/* CTAs */}
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Reveal delay={400}>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <ButtonLink
+                  href={hero.primaryCta.href}
+                  className="w-full sm:w-auto"
+                >
+                  {hero.primaryCta.label}
+                  <ArrowRight className="h-4 w-4" />
+                </ButtonLink>
 
-              <ButtonLink
-                href={hero.primaryCta.href}
-                className="w-full sm:w-auto"
-              >
-                {hero.primaryCta.label}
-
-                <ArrowRight className="h-4 w-4" />
-              </ButtonLink>
-
-              <ButtonLink
-                href={hero.secondaryCta.href}
-                variant="ghostLight"
-                className="w-full sm:w-auto"
-              >
-                <PlayCircle className="h-4 w-4" />
-
-                {hero.secondaryCta.label}
-              </ButtonLink>
-
-            </div>
+                <ButtonLink
+                  href={hero.secondaryCta.href}
+                  variant="ghostLight"
+                  className="w-full sm:w-auto"
+                >
+                  <PlayCircle className="h-4 w-4" />
+                  {hero.secondaryCta.label}
+                </ButtonLink>
+              </div>
+            </Reveal>
           </div>
 
           {/* Portrait */}
