@@ -11,6 +11,28 @@ export const programsPageData = {
     label: sitePrograms.cta.label,
     href: sitePrograms.cta.href,
   },
+  process: {
+    eyebrow: "Four Steps.",
+    title: "Our Process",
+    steps: [
+      {
+        title: "Connect & Map",
+        text: "A sharp, focused call to analyze your current setup, map revenue goals, and spot immediate gaps in your Real Estate Market."
+      },
+      {
+        title: "Build the Blueprint",
+        text: "You get a clear, system-driven action plan tailored exactly to your Real Estate Market and specific target territory."
+      },
+      {
+        title: "Execute & Close",
+        text: "Move from planning to active ground execution. Get practical guidance to evaluate your Real Estate market potential."
+      },
+      {
+        title: "Automate & Scale",
+        text: "Implement predictable office systems, automated lead marketing, and strong sales teams so your real estate business keeps growing without you chasing every single deal."
+      }
+    ]
+  },
   items: [
     {
       ...sitePrograms.items[0], // RGC Champions Launchpad

@@ -84,5 +84,5 @@ export const aboutJourney = {
 export const aboutCta = {
   eyebrow: "Take Action",
   title: "A short conversation can become your biggest deal ever.",
-  cta: { label: "Connect With Us Now", href: "/#contact" },
+  cta: { label: "Connect With Us Now", href: "mailto:dramolmourya@gmail.com" },
 };

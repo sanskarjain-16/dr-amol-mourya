@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import ProgramsHero from "../components/sections/programs/ProgramsHero";
-import ProgramGrid from "../components/sections/programs/ProgramGrid";
-import ProgramsCTA from "../components/sections/programs/ProgramsCTA";
+import DetailedProgramGrid from "../components/sections/programs/DetailedProgramGrid";
+import ProcessSection from "../components/sections/programs/ProcessSection";
 
 export default function Programs() {
   useEffect(() => {
@@ -15,8 +15,8 @@ export default function Programs() {
   return (
     <main className="min-h-screen w-full overflow-x-hidden">
       <ProgramsHero />
-      <ProgramGrid />
-      <ProgramsCTA />
+      <DetailedProgramGrid />
+      <ProcessSection />
     </main>
   );
 }

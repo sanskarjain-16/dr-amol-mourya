@@ -10,7 +10,7 @@ export default function ProgramsHero() {
             {programsPageData.hero.eyebrow}
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-display mb-8 leading-tight">
-            {programsPageData.hero.title}
+            Choose Your Growth Path
           </h1>
           <p className="text-lg md:text-xl text-white/80 font-light max-w-2xl mx-auto leading-relaxed">
             {programsPageData.hero.description}

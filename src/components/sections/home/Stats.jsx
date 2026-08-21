@@ -11,18 +11,18 @@ export default function Stats() {
     >
       <Container>
         <Reveal>
-          <div className="grid grid-cols-2 gap-y-8 sm:grid-cols-3 lg:grid-cols-5 lg:gap-0">
+          <div className="grid grid-cols-2 gap-y-10 sm:grid-cols-3 lg:grid-cols-6 lg:gap-0">
             {stats.map((stat, index) => (
               <Reveal
                 key={stat.label}
                 delay={index * 100}
                 className={`relative px-4 text-center sm:px-6 ${
-                  index !== 0
-                    ? 'lg:border-l lg:border-white/10'
+                  index !== 0 && index !== 3
+                    ? 'sm:border-l sm:border-white/10 lg:border-l lg:border-white/10'
                     : ''
-                }`}
+                } ${index === 3 ? 'lg:border-l lg:border-white/10' : ''}`}
               >
-                <div className="text-3xl font-semibold tracking-tight text-[#d8b56a] sm:text-4xl lg:text-4xl">
+                <div className="text-3xl font-extrabold font-sans tracking-tight text-[#d8b56a] sm:text-4xl lg:text-4xl">
                   {stat.prefix || ''}
                   <CountUp
                     value={stat.value}

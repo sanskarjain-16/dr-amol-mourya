@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { hero, rgc } from "../../../data/site";
 import { Reveal } from "../../Reveal";
 import ButtonLink from "../../ui/ButtonLink";
-import editorial from "../../../assets/images/amol-editorial.jpg";
+import editorial from "../../../assets/images/home-intro-photo.jpg";
 
 export default function Intro() {
   return (
@@ -20,7 +20,7 @@ export default function Intro() {
               width={1200}
               height={1600}
               loading="lazy"
-              className="relative w-full rounded-[1.5rem] object-cover shadow-lift"
+              className="relative w-full aspect-[3/4] rounded-[1.5rem] object-cover shadow-lift"
             />
           </div>
         </Reveal>
@@ -52,12 +52,6 @@ export default function Intro() {
             ))}
           </div>
 
-          <Reveal className="mt-8">
-            <ButtonLink href={hero.primaryCta.href} className="w-full sm:w-auto">
-              {hero.primaryCta.label}
-              <ArrowRight className="h-4 w-4" />
-            </ButtonLink>
-          </Reveal>
         </div>
       </div>
     </section>

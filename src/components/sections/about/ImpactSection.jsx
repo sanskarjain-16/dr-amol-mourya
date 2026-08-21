@@ -20,10 +20,8 @@ export default function ImpactSection() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 md:gap-x-12 md:gap-y-20">
           {aboutAchievements.items.map((stat, index) => (
             <Reveal key={index} delay={index * 100} className="flex flex-col items-center text-center">
-              <div className="text-4xl md:text-6xl lg:text-7xl font-display text-gold-gradient mb-4 font-semibold tracking-tight">
-                {stat.prefix || ''}
-                <CountUp value={stat.value} decimals={stat.decimals || 0} />
-                {stat.suffix || ''}
+              <div className="text-4xl md:text-6xl lg:text-7xl font-sans text-gold-gradient mb-4 font-extrabold tracking-tight">
+                <CountUp value={stat.value} suffix={stat.suffix} decimals={stat.decimals || 0} />
               </div>
               <div className="text-sm md:text-base text-white/70 font-light max-w-[150px] md:max-w-xs uppercase tracking-wide">
                 {stat.label}

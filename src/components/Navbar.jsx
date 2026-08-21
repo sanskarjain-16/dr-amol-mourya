@@ -5,7 +5,7 @@ import { nav, hero } from "../data/site";
 import logo from "../assets/images/logo.png";
 
 const linkBase =
-  "rounded-full px-4 py-2 text-sm font-medium text-ink-foreground/80 transition-colors hover:text-gold-soft";
+  "group rounded-full px-4 py-2 text-sm font-medium transition-colors";
 
 function NavLink({
   item,
@@ -14,40 +14,57 @@ function NavLink({
 }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
+  
+  // Determine if the link is currently active
+  const targetPath = item.href.split('#')[0] || '/';
+  const isActive = targetPath === '/' ? isHome : location.pathname.startsWith(targetPath);
+
+  const activeColorClass = isActive 
+    ? "text-gold-soft" 
+    : "text-ink-foreground/80 hover:text-gold-soft";
+  
+  const innerContent = (
+    <span className="relative py-1 flex items-center justify-center">
+      {item.label}
+      {isActive && (
+        <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-gold/0 via-gold-soft to-gold/0 animate-[navSweep_1.5s_cubic-bezier(0.22,1,0.36,1)_forwards]" />
+      )}
+      {!isActive && (
+        <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-gold/0 via-gold-soft to-gold/0 scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
+      )}
+    </span>
+  );
 
   let content;
 
   if (item.href.startsWith("/")) {
-    // For actual page routes (/about, /programs, /reviews)
     content = (
       <Link
         to={item.href}
         onClick={onClick}
-        className={`${linkBase} ${className}`}
+        className={`${linkBase} ${activeColorClass} ${className}`}
       >
-        {item.label}
+        {innerContent}
       </Link>
     );
   } else if (item.href.startsWith("#")) {
-    // For hash links (#contact)
     if (isHome) {
       content = (
-        <a href={item.href} onClick={onClick} className={`${linkBase} ${className}`}>
-          {item.label}
+        <a href={item.href} onClick={onClick} className={`${linkBase} ${activeColorClass} ${className}`}>
+          {innerContent}
         </a>
       );
     } else {
       content = (
-        <Link to={`/${item.href}`} onClick={onClick} className={`${linkBase} ${className}`}>
-          {item.label}
+        <Link to={`/${item.href}`} onClick={onClick} className={`${linkBase} ${activeColorClass} ${className}`}>
+          {innerContent}
         </Link>
       );
     }
   } else {
-    // Fallback
     content = (
-      <Link to={item.href} onClick={onClick} className={`${linkBase} ${className}`}>
-        {item.label}
+      <Link to={item.href} onClick={onClick} className={`${linkBase} ${activeColorClass} ${className}`}>
+        {innerContent}
       </Link>
     );
   }
@@ -78,7 +95,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open
+        scrolled || open || !isHome
           ? "border-b border-ink-foreground/10 bg-ink/90 backdrop-blur-md"
           : "bg-transparent"
       }`}
@@ -124,7 +141,7 @@ export default function Navbar() {
               key={item.label}
               item={item}
               onClick={() => setOpen(false)}
-              className="border-b border-ink-foreground/10 py-4 font-display text-2xl text-ink-foreground hover:text-gold-soft"
+              className="border-b border-ink-foreground/10 py-4 text-2xl font-medium text-ink-foreground hover:text-gold-soft"
             />
           ))}
         </nav>

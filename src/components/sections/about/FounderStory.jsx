@@ -1,6 +1,6 @@
 import { Reveal } from '../../Reveal'
 import { aboutMeet } from '../../../data/about'
-import editorialImg from '../../../assets/images/amol-editorial.jpg'
+import editorialImg from '../../../assets/images/about-story-photo.jpg'
 
 export default function FounderStory() {
   const storyParagraphs = aboutMeet.paragraphs.slice(2)

@@ -90,6 +90,6 @@ export const reviewsPageData = {
   cta: {
     title: "Your story, next.",
     label: "Begin",
-    href: "/#contact",
+    href: "/contact",
   },
 };

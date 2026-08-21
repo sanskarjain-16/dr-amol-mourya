@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Programs from "./pages/Programs";
 import Reviews from "./pages/Reviews";
+import Contact from "./pages/Contact";
+import Workshop from "./pages/Workshop";
 
 function ScrollToAnchor() {
   const { hash } = useLocation();
@@ -31,7 +33,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToAnchor />
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-screen w-full overflow-x-hidden bg-background text-foreground">
         <Navbar />
 
         <Routes>
@@ -39,6 +41,8 @@ function App() {
           <Route path="/about/*" element={<About />} />
           <Route path="/programs/*" element={<Programs />} />
           <Route path="/reviews/*" element={<Reviews />} />
+          <Route path="/contact/*" element={<Contact />} />
+          <Route path="/workshop" element={<Workshop />} />
         </Routes>
 
         <Footer />

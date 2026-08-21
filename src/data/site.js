@@ -1,10 +1,11 @@
 // All content sourced from the existing dramolmourya.com website.
 
 export const nav = [
-  { label: "Home", href: "/#home" },
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Programs", href: "/programs" },
   { label: "Reviews", href: "/reviews" },
+  { label: "Contact us", href: "/contact" },
 ];
 
 export const hero = {
@@ -17,12 +18,12 @@ export const hero = {
   description:
     "Best Real Estate Coach in India & Asia, Helping Real Estate Agents, Builders, Developers, Investors and Entrepreneurs Build Wealth Through Real Estate.",
   primaryCta: {
-    label: "Start your Transformation",
-    href: "/#contact",
+    label: "Enroll Now",
+    href: "/workshop",
   },
   secondaryCta: {
     label: "Watch Free Training",
-    href: "/#media",
+    href: "https://www.youtube.com/@dramolmourya",
   },
 };
 
@@ -30,29 +31,33 @@ export const stats = [
   {
     value: 3.5,
     suffix: " L+",
-    label: "Real Estate Entrepreneurs Trained",
+    label: "Professionals Trained",
     decimals: 1,
   },
   {
-    value: 20,
-    suffix: "+",
-    label: "Years On-Ground Experience",
+    value: 250,
+    suffix: "K+",
+    label: "Audience across Social Media",
   },
   {
-    value: 100,
+    value: 50,
     suffix: "+",
-    label: "Real Estate CEOs Trained",
+    label: "Cities Reached",
   },
   {
     value: 2,
-    prefix: "$",
     suffix: "B+",
     label: "Combined net worth of the watching audience",
   },
   {
-    value: 30,
+    value: 500,
+    suffix: "Cr+",
+    label: "Property Deals Closed",
+  },
+  {
+    value: 20,
     suffix: "+",
-    label: "Countries Reached",
+    label: "Years Ground Experience",
   },
 ];
 
@@ -97,7 +102,7 @@ export const programs = {
   title: "The RGC Growth Ecosystem",
   cta: {
     label: "Get Started Today",
-    href: "/#contact",
+    href: "/contact",
   },
   items: [
     {
@@ -140,7 +145,7 @@ export const workshop = {
     "Stop working day and night with zero systems, running behind deals, and guessing your next step. Join this live online class to learn the exact step-by-step formulas that have helped over 3 Lakh property professionals grow their businesses.",
   cta: {
     label: "Register for Workshop",
-    href: "/#contact",
+    href: "/programs#enroll-section",
   },
   points: [
     {

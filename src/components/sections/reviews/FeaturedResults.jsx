@@ -29,33 +29,8 @@ export default function FeaturedResults() {
                   isEven ? "lg:flex-row" : "lg:flex-row-reverse"
                 }`}
               >
-                {/* Media Side */}
-                <div className="w-full lg:w-[55%] shrink-0">
-                  <Reveal delay={100}>
-                    <div className="relative aspect-[4/5] sm:aspect-video lg:aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted shadow-lg group">
-                      <img
-                        src={item.thumbnail}
-                        alt={`Result story from ${item.name}`}
-                        loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      {hasVideo && (
-                        <button
-                          onClick={() => setActiveVideo(item.videoUrl)}
-                          className="absolute inset-0 flex items-center justify-center bg-ink/10 transition-colors hover:bg-ink/30 group-hover:bg-ink/20"
-                          aria-label={`Play story of ${item.name}`}
-                        >
-                          <div className="flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-full bg-gold-soft/95 text-ink backdrop-blur shadow-xl transition-transform hover:scale-110">
-                            <Play className="h-8 w-8 ml-1" fill="currentColor" />
-                          </div>
-                        </button>
-                      )}
-                    </div>
-                  </Reveal>
-                </div>
-
                 {/* Content Side */}
-                <div className={`w-full lg:w-[45%] flex flex-col ${isEven ? "lg:pl-8" : "lg:pr-8"}`}>
+                <div className={`w-full lg:w-[45%] flex flex-col ${isEven ? "lg:pr-8" : "lg:pl-8"}`}>
                   <Reveal delay={200}>
                     {/* Section Label / Number */}
                     <div className="flex items-center gap-4 mb-5">
@@ -102,6 +77,31 @@ export default function FeaturedResults() {
                           <span className="w-8 h-[1px] bg-muted-foreground/50"></span>
                           Verified Experience
                         </div>
+                      )}
+                    </div>
+                  </Reveal>
+                </div>
+
+                {/* Media Side */}
+                <div className="w-full lg:w-[55%] shrink-0">
+                  <Reveal delay={100}>
+                    <div className="relative aspect-[4/5] sm:aspect-video lg:aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted shadow-lg group">
+                      <img
+                        src={item.thumbnail}
+                        alt={`Result story from ${item.name}`}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      {hasVideo && (
+                        <button
+                          onClick={() => setActiveVideo(item.videoUrl)}
+                          className="absolute inset-0 flex items-center justify-center bg-ink/10 transition-colors hover:bg-ink/30 group-hover:bg-ink/20"
+                          aria-label={`Play story of ${item.name}`}
+                        >
+                          <div className="flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-full bg-gold-soft/95 text-ink backdrop-blur shadow-xl transition-transform hover:scale-110">
+                            <Play className="h-8 w-8 ml-1" fill="currentColor" />
+                          </div>
+                        </button>
                       )}
                     </div>
                   </Reveal>

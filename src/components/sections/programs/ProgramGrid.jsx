@@ -8,7 +8,7 @@ export default function ProgramGrid() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {programsPageData.items.map((program, index) => (
             <ProgramCard 
-              key={program.title} 
+              key={program.name || index} 
               program={program} 
               index={index} 
             />

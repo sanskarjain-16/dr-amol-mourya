@@ -16,7 +16,7 @@ export default function Media() {
               width={1024}
               height={1024}
               loading="lazy"
-              className="aspect-[16/10] w-full object-cover md:aspect-auto md:h-full"
+              className="aspect-[4/3] sm:aspect-[16/10] w-full object-cover object-top md:aspect-auto md:h-full"
             />
             <div className="p-6 sm:p-10">
               <p className="eyebrow text-accent">{media.eyebrow}</p>

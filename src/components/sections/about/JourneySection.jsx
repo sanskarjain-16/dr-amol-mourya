@@ -3,9 +3,9 @@ import { aboutJourney } from '../../../data/about'
 import JourneyMilestone from './JourneyMilestone'
 
 import img1 from '../../../assets/images/amol-square.jpg'
-import img2 from '../../../assets/images/amol-hero.jpg'
-import img3 from '../../../assets/images/amol-editorial.jpg'
-import img4 from '../../../assets/images/amol-portrait.png'
+import img2 from '../../../assets/images/about-stage-photo.jpg'
+import img3 from '../../../assets/images/about-impact-photo-2.jpg'
+import img4 from '../../../assets/images/about-vision-photo-2.jpg'
 
 const journeyMilestones = [
   {
@@ -18,19 +18,22 @@ const journeyMilestones = [
     label: "Real Estate Journey",
     title: "Building the Empire",
     description: "Dr. Amol Mourya doesn’t just teach real estate business—he lives it every single day. Over his 20+ year career, he has built, scaled, and managed more than 6 successful companies across the property industry.",
-    image: img2
+    image: img2,
+    imagePosition: "right"
   },
   {
     label: "Building the Ecosystem",
     title: "Creating Impact",
     description: "He has empowered over 3.5 Lakh individuals and 100+ corporations in real estate across India to achieve remarkable growth and success, carving his name on the Asia Book and India Book of Records.",
-    image: img3
+    image: img3,
+    imagePosition: "right"
   },
   {
     label: "Today",
     title: "The Present Vision",
     description: "His vision and mission behind this coaching is to empower 1 Lakh entrepreneurs to create 1 Crore Jobs and save 25 lakh lives in real estate.",
-    image: img4
+    image: img4,
+    imagePosition: "left"
   }
 ];
 

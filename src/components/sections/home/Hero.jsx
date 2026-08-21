@@ -77,6 +77,8 @@ export default function Hero() {
                   href={hero.secondaryCta.href}
                   variant="ghostLight"
                   className="w-full sm:w-auto"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <PlayCircle className="h-4 w-4" />
                   {hero.secondaryCta.label}

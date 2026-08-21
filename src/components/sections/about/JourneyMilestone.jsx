@@ -79,6 +79,7 @@ export default function JourneyMilestone({ item, index, isLast }) {
             src={item.image}
             alt={item.title}
             loading="lazy"
+            style={{ objectPosition: item.imagePosition || 'center' }}
             className={`w-full h-full object-cover transition-transform duration-1000 ${
               isInView ? "scale-100" : "scale-105"
             }`}

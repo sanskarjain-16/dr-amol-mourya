@@ -17,7 +17,7 @@ export default function PhilosophySection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {aboutPhilosophy.items.map((item, index) => (
             <Reveal key={index} delay={index * 100} className="flex flex-col group">
-              <div className="text-5xl md:text-7xl font-display text-gold/20 mb-6 font-bold tracking-tighter transition-colors duration-500 group-hover:text-gold/40">
+              <div className="text-5xl md:text-7xl font-sans text-gold/60 mb-6 font-extrabold tracking-tight transition-colors duration-500 group-hover:text-gold">
                 0{index + 1}
               </div>
               <h3 className="text-xl md:text-2xl font-display font-medium text-foreground mb-4">
