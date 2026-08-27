@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { CheckCircle2, Video, ArrowRight, Bell, AlertCircle, Loader2 } from 'lucide-react';
 import { Reveal } from '../components/Reveal';
+import { supabase } from '../lib/supabase';
 
 // DEMO URL — replace with production welcome video before launch.
 const DEMO_WELCOME_VIDEO_URL = "https://www.youtube.com/embed/cnXf3qMxXRc?si=RstxRgVfRT6_uMsE";
-
-// DEMO URL — replace with production WhatsApp channel before launch.
-const DEMO_WHATSAPP_URL = "https://wa.me/919999999999";
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 
@@ -17,6 +15,25 @@ export default function WorkshopSuccess() {
   
   // Status: 'processing' | 'confirmed' | 'failed' | 'invalid'
   const [status, setStatus] = useState(regId ? 'processing' : 'invalid');
+  const [whatsappUrl, setWhatsappUrl] = useState(null);
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const { data } = await supabase
+          .from('site_settings')
+          .select('whatsapp_group_link')
+          .eq('id', 1)
+          .single();
+        if (data && data.whatsapp_group_link) {
+          setWhatsappUrl(data.whatsapp_group_link);
+        }
+      } catch (err) {
+        console.error('Error fetching settings:', err);
+      }
+    };
+    fetchSettings();
+  }, []);
 
   useEffect(() => {
     if (!regId) return;
@@ -178,7 +195,8 @@ export default function WorkshopSuccess() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* WhatsApp CTA */}
-          <Reveal delay={0.2} className="h-full">
+          {whatsappUrl && (
+            <Reveal delay={0.2} className="h-full">
             <div className="bg-gradient-to-br from-green-50 to-emerald-100 rounded-3xl shadow-lg border border-green-200 p-8 text-center h-full flex flex-col justify-center">
               <div className="w-16 h-16 bg-white text-green-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
@@ -192,7 +210,7 @@ export default function WorkshopSuccess() {
                 Join our WhatsApp channel to receive workshop updates, announcements, reminders, and important information.
               </p>
               <a 
-                href={DEMO_WHATSAPP_URL}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full px-6 py-4 bg-green-500 hover:bg-green-600 text-white font-black text-sm uppercase tracking-widest rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 group"
@@ -202,6 +220,7 @@ export default function WorkshopSuccess() {
               </a>
             </div>
           </Reveal>
+          )}
 
           {/* What Happens Next */}
           <Reveal delay={0.3} className="h-full">

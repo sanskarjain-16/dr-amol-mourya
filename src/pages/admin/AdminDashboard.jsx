@@ -23,6 +23,8 @@ export default function AdminDashboard() {
   const [datePart, setDatePart] = useState('');
   const [timePart, setTimePart] = useState('');
   const [location, setLocation] = useState('');
+  const [whatsappLink, setWhatsappLink] = useState('');
+  const [whatsappMessage, setWhatsappMessage] = useState('');
   const [registrations, setRegistrations] = useState([]);
   const [contactSubmissions, setContactSubmissions] = useState([]);
   const [waitlistLeads, setWaitlistLeads] = useState([]);
@@ -64,7 +66,7 @@ export default function AdminDashboard() {
     try {
       const { data, error } = await supabase
         .from('site_settings')
-        .select('workshop_date, workshop_location')
+        .select('workshop_date, workshop_location, whatsapp_group_link')
         .eq('id', 1)
         .single();
 
@@ -81,6 +83,10 @@ export default function AdminDashboard() {
       
       if (data && data.workshop_location) {
         setLocation(data.workshop_location);
+      }
+
+      if (data && data.whatsapp_group_link) {
+        setWhatsappLink(data.whatsapp_group_link);
       }
 
       // Fetch registrations
@@ -155,6 +161,31 @@ export default function AdminDashboard() {
       setMessage('Workshop date updated successfully!');
     } catch (error) {
       setMessage(`Error updating date: ${error.message}`);
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleSaveWhatsapp = async (e) => {
+    e.preventDefault();
+    setSaving(true);
+    setWhatsappMessage('');
+
+    try {
+      if (whatsappLink && !whatsappLink.match(/^https?:\/\//)) {
+        throw new Error('Please enter a valid URL starting with http:// or https://');
+      }
+
+      const { error } = await supabase
+        .from('site_settings')
+        .update({ whatsapp_group_link: whatsappLink || null })
+        .eq('id', 1);
+
+      if (error) throw error;
+
+      setWhatsappMessage('WhatsApp group link updated successfully!');
+    } catch (error) {
+      setWhatsappMessage(`Error updating link: ${error.message}`);
     } finally {
       setSaving(false);
     }
@@ -360,6 +391,7 @@ export default function AdminDashboard() {
 
         {/* Settings Tab */}
         {activeTab === 'settings' && (
+          <>
           <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8">
           <div className="flex items-center gap-4 mb-8 pb-6 border-b border-slate-100">
             <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center">
@@ -444,6 +476,63 @@ export default function AdminDashboard() {
             </div>
           </form>
           </div>
+
+          <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 mt-8">
+          <div className="flex items-center gap-4 mb-8 pb-6 border-b border-slate-100">
+            <div className="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center">
+              <MessageSquare className="w-6 h-6" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-black text-slate-900">WhatsApp Group</h2>
+              <p className="text-slate-500 text-sm">Manage the active WhatsApp group link for the Thank You page</p>
+            </div>
+          </div>
+
+          {whatsappMessage && (
+            <div className={`p-4 rounded-xl mb-6 text-sm font-medium border ${whatsappMessage.includes('Error') ? 'bg-red-50 text-red-600 border-red-100' : 'bg-green-50 text-green-700 border-green-200'}`}>
+              {whatsappMessage}
+            </div>
+          )}
+
+          <form onSubmit={handleSaveWhatsapp} className="space-y-6">
+            <div>
+              <label className="block text-sm font-bold text-slate-700 mb-2">Current WhatsApp Group Link</label>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="https://chat.whatsapp.com/..."
+                  value={whatsappLink}
+                  onChange={(e) => setWhatsappLink(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                />
+              </div>
+              <p className="text-xs text-slate-400 mt-2">Leave blank to hide the WhatsApp join button on the Thank You page.</p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-slate-100">
+              <button
+                type="submit"
+                disabled={saving}
+                className="flex items-center justify-center gap-2 w-full sm:w-auto bg-green-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Save className="w-4 h-4" />
+                {saving ? 'Saving...' : 'Save WhatsApp Link'}
+              </button>
+              
+              {whatsappLink && (
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full sm:w-auto bg-slate-100 text-slate-700 font-bold py-3 px-8 rounded-xl hover:bg-slate-200 transition-colors"
+                >
+                  Test Link
+                </a>
+              )}
+            </div>
+          </form>
+          </div>
+          </>
         )}
 
         {/* Registrations Tab */}
