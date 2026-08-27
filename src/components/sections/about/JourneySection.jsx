@@ -12,7 +12,8 @@ const journeyMilestones = [
     label: "The Beginning",
     title: "Foundational Practices",
     description: "From foundational real estate practices to building a network that empowers thousands, the journey has always been about one thing: creating lasting, system-driven success.",
-    image: img1
+    image: img1,
+    imagePosition: "top"
   },
   {
     label: "Real Estate Journey",

@@ -35,12 +35,12 @@ export const stats = [
     decimals: 1,
   },
   {
-    value: 250,
+    value: 500,
     suffix: "K+",
     label: "Audience across Social Media",
   },
   {
-    value: 50,
+    value: 100,
     suffix: "+",
     label: "Cities Reached",
   },
@@ -145,7 +145,7 @@ export const workshop = {
     "Stop working day and night with zero systems, running behind deals, and guessing your next step. Join this live online class to learn the exact step-by-step formulas that have helped over 3 Lakh property professionals grow their businesses.",
   cta: {
     label: "Register for Workshop",
-    href: "/programs#enroll-section",
+    href: "/workshop",
   },
   points: [
     {

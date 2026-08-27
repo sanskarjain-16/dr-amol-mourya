@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { Mail, MapPin, Phone, CheckCircle } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { finalCta, contact } from "../../../data/site";
 import { Reveal } from "../../Reveal";
-
+import ContactForm from "../../ContactForm";
 const Facebook = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
@@ -33,12 +32,6 @@ const Linkedin = (props) => (
 );
 
 export default function FinalCta() {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
 
   return (
     <section id="contact" className="surface-ink relative isolate overflow-hidden py-16 sm:py-24">
@@ -109,73 +102,11 @@ export default function FinalCta() {
         </Reveal>
 
         <Reveal delay={100}>
-          {submitted ? (
-            <div className="flex h-full min-h-[400px] flex-col items-center justify-center rounded-2xl border border-ink-foreground/12 bg-ink-foreground/5 p-8 text-center backdrop-blur-sm">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold mb-6">
-                <CheckCircle className="h-8 w-8" />
-              </div>
-              <h3 className="mb-2 font-display text-2xl text-ink-foreground">Message Sent</h3>
-              <p className="text-ink-foreground/70 leading-relaxed">
-                Thank you for reaching out! Our team will contact you at the provided details within 24 hours.
-              </p>
-            </div>
-          ) : (
-            <form
-              className="rounded-2xl border border-ink-foreground/12 bg-ink-foreground/5 p-5 backdrop-blur-sm sm:p-7"
-              onSubmit={handleSubmit}
-            >
-              <div className="space-y-4">
-                <Field id="name" label="Name" type="text" />
-                <Field id="phone" label="Phone" type="tel" />
-                <Field id="email" label="Email" type="email" />
-                <div>
-                  <label htmlFor="role" className="text-sm font-medium text-ink-foreground/85">
-                    Your role in real estate or want to be
-                  </label>
-                  <select
-                    id="role"
-                    name="role"
-                    defaultValue=""
-                    required
-                    className="mt-2 min-h-12 w-full rounded-xl border border-ink-foreground/20 bg-ink px-4 text-sm text-ink-foreground"
-                  >
-                    <option value="" disabled>
-                      Select your role
-                    </option>
-                    {finalCta.roles.map((r) => (
-                      <option key={r} value={r}>
-                        {r}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-              <button
-                type="submit"
-                className="mt-6 min-h-12 w-full rounded-full bg-[image:var(--gradient-gold)] px-6 text-sm font-semibold text-ink shadow-soft transition-all hover:shadow-lift active:scale-[0.98]"
-              >
-                Submit
-              </button>
-            </form>
-          )}
+          <ContactForm theme="dark" />
         </Reveal>
       </div>
     </section>
   );
 }
 
-function Field({ id, label, type }) {
-  return (
-    <div>
-      <label htmlFor={id} className="text-sm font-medium text-ink-foreground/85">
-        {label}
-      </label>
-      <input
-        id={id}
-        name={id}
-        type={type}
-        className="mt-2 min-h-12 w-full rounded-xl border border-ink-foreground/20 bg-ink px-4 text-sm text-ink-foreground placeholder:text-ink-foreground/40"
-      />
-    </div>
-  );
-}
+

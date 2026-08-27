@@ -1,7 +1,7 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import { contact } from "../data/site";
 import { Reveal } from "../components/Reveal";
-
+import ContactForm from "../components/ContactForm";
 const Facebook = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
@@ -31,9 +31,15 @@ const Linkedin = (props) => (
   </svg>
 );
 
+import { Helmet } from "react-helmet-async";
+
 export default function Contact() {
   return (
     <main className="bg-background pb-16 sm:pb-24">
+      <Helmet>
+        <title>Contact Us | Dr. Amol Mourya</title>
+        <meta name="description" content="Get in touch with Dr. Amol Mourya's team to accelerate your real estate growth journey." />
+      </Helmet>
       {/* Header Section */}
       <section className="relative w-full overflow-hidden bg-ink pt-32 pb-16 sm:pt-40 sm:pb-24">
         <div
@@ -133,8 +139,20 @@ export default function Contact() {
             </Reveal>
           </div>
 
-          {/* Location Map */}
-          <Reveal delay={200} className="h-[400px] w-full overflow-hidden rounded-3xl shadow-soft lg:h-full lg:min-h-[500px]">
+          {/* Contact Form */}
+          <div className="w-full">
+            <Reveal delay={200}>
+              <ContactForm theme="light" />
+            </Reveal>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Location Map Section */}
+      <section className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 lg:pb-24">
+        <Reveal>
+          <div className="h-[400px] w-full overflow-hidden rounded-3xl shadow-soft">
             <iframe
               src="https://maps.google.com/maps?q=Anandam%20Business%20Centre,%20Ganeshpeth%20Colony,%20Nagpur&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
@@ -146,9 +164,8 @@ export default function Contact() {
               title="Dr. Amol Mourya Headquarters"
               className="grayscale-[0.2] contrast-[1.05] filter transition-all hover:grayscale-0 hover:contrast-100"
             />
-          </Reveal>
-
-        </div>
+          </div>
+        </Reveal>
       </section>
     </main>
   );

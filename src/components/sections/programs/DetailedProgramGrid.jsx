@@ -2,8 +2,11 @@ import { detailedPrograms } from "../../../data/programsDetailed";
 import { ArrowRight, Target, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Reveal } from "../../Reveal";
+import { useState } from "react";
+import CourseEnquiryModal from "./CourseEnquiryModal";
 
 export default function DetailedProgramGrid() {
+  const [enquiryCourse, setEnquiryCourse] = useState(null);
   return (
     <div className="bg-slate-50 relative z-10 selection:bg-blue-600/20">
       {detailedPrograms.map((program, index) => {
@@ -28,13 +31,13 @@ export default function DetailedProgramGrid() {
                         {program.title}
                       </h2>
 
-                      <div className="rounded-3xl overflow-hidden shadow-2xl mb-8 aspect-video lg:aspect-[4/3] relative group">
+                      <div className="rounded-3xl overflow-hidden shadow-2xl mb-8 relative group bg-slate-100">
                         <img 
                           src={program.image} 
                           alt={program.title} 
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none opacity-60 group-hover:opacity-80 transition-opacity" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none opacity-50 group-hover:opacity-70 transition-opacity" />
                       </div>
                       
                       <p className="text-lg text-slate-600 font-medium leading-relaxed mb-8">
@@ -42,7 +45,15 @@ export default function DetailedProgramGrid() {
                       </p>
 
                       {program.primaryCta && (
-                        program.primaryCta.href.startsWith("/") ? (
+                        program.primaryCta.action === 'enquire' ? (
+                          <button
+                            onClick={() => setEnquiryCourse(program.title)}
+                            className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 px-8 rounded-full shadow-[0_10px_30px_rgba(37,99,235,0.3)] hover:shadow-[0_10px_40px_rgba(37,99,235,0.5)] transition-all hover:-translate-y-1 w-full sm:w-auto"
+                          >
+                            {program.primaryCta.label}
+                            <ArrowRight className="w-5 h-5" />
+                          </button>
+                        ) : program.primaryCta.href?.startsWith("/") ? (
                           <Link 
                             to={program.primaryCta.href}
                             className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 px-8 rounded-full shadow-[0_10px_30px_rgba(37,99,235,0.3)] hover:shadow-[0_10px_40px_rgba(37,99,235,0.5)] transition-all hover:-translate-y-1 w-full sm:w-auto"
@@ -147,6 +158,11 @@ export default function DetailedProgramGrid() {
           </section>
         );
       })}
+      <CourseEnquiryModal 
+        isOpen={!!enquiryCourse} 
+        onClose={() => setEnquiryCourse(null)}
+        courseName={enquiryCourse}
+      />
     </div>
   );
 }

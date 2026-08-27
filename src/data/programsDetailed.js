@@ -40,6 +40,10 @@ export const detailedPrograms = [
     description: "Get full 12-month handholding to transition from an individual operator into a dominant regional market leader with a highly profitable company.",
     whoIsFor: "Real Estate Marketing Agency Owners, Team Leaders and Professionals already working in Real Estate.",
     image: "https://dramolmourya.com/wp-content/uploads/2026/05/photo_3_2026-05-22_14-29-22-1024x1024.jpg",
+    primaryCta: {
+      label: "Enquire Now",
+      action: "enquire"
+    },
     modules: [
       {
         number: "01",
@@ -70,6 +74,10 @@ export const detailedPrograms = [
     description: "A highly private, boardroom-level strategic engagement with Dr. Amol Mourya to restructure your finances, optimize fields, and maximize company equity.",
     whoIsFor: "Big Builders, Property Developers, and Real Estate Company CEOs with a minimum turnover of 1 Crore+.",
     image: "https://dramolmourya.com/wp-content/uploads/2026/05/photo_1_2026-05-22_14-29-22-1024x1024.jpg",
+    primaryCta: {
+      label: "Enquire Now",
+      action: "enquire"
+    },
     modules: [
       {
         number: "01",
@@ -100,6 +108,10 @@ export const detailedPrograms = [
     description: "Stop relying on superstar employees. Install a repeatable, system-driven machinery across your departments to scale property bookings automatically.",
     whoIsFor: "Established Real Estate Companies with a minimum turnover of 25 Crores+ and at least 15–20 active employees.",
     image: "https://dramolmourya.com/wp-content/uploads/2026/05/Website-Box-4-1024x1024.png",
+    primaryCta: {
+      label: "Enquire Now",
+      action: "enquire"
+    },
     modules: [
       {
         number: "01",
@@ -130,6 +142,10 @@ export const detailedPrograms = [
     description: "Built exclusively for mega real estate companies whose business is already running well, but want to catch hidden operational leaks, eliminate staff performance gaps, and secure absolute market dominance.",
     whoIsFor: "Large Scale Developers, Corporate Real Estate Houses, and Conglomerates with a minimum turnover of 100 Crores+.",
     image: "https://dramolmourya.com/wp-content/uploads/2026/05/System-Consultation-1024x1024.png",
+    primaryCta: {
+      label: "Enquire Now",
+      action: "enquire"
+    },
     modules: [
       {
         number: "01",

@@ -14,7 +14,7 @@ export default function FounderStory() {
             <img 
               src={editorialImg} 
               alt="Dr. Amol Mourya interacting with audience" 
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-[50%_80%]"
               loading="lazy"
             />
           </div>

@@ -23,3 +23,21 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Database Backups & Audits
+pre_cleanup_backup.json
+*_audit*.json
+*.sql
+
+audit.cjs
+audit_logs.json
+audit_output.json
+inspect_columns.mjs
+inspect_db.mjs
+inspect_schema.mjs
+openapi.json
+registrations.json
+scratch/
+test_supabase.mjs
+verify.mjs
+waitlist.json
