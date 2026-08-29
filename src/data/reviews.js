@@ -15,7 +15,7 @@ export const reviewsPageData = {
         "I was in a very weak financial place and losing hope. But Dr. Amol's systems completely changed my life. I made a massive comeback, closing 157 deals and earning a 9-figure commission in just one year!",
       result: "157 Deals & 9-figure commission",
       thumbnail:
-        "https://dramolmourya.com/wp-content/uploads/2026/05/photo_2026-05-25_18-46-01-1024x682.jpg",
+        "/images/photo_2026-05-25_18-46-01-1024x682.jpg",
       videoUrl: "", // Available for future implementation
     },
     {
@@ -25,7 +25,7 @@ export const reviewsPageData = {
         "I started from absolute zero with no background in business. Thanks to the RGC frameworks, I built a powerful real estate brand in Bhopal from scratch and crossed 400Cr+ in a single year!",
       result: "400Cr+ in a single year",
       thumbnail:
-        "https://dramolmourya.com/wp-content/uploads/2026/05/photo_2026-05-25_19-00-33-1024x682.jpg",
+        "/images/photo_2026-05-25_19-00-33-1024x682.jpg",
       videoUrl: "",
     },
     {
@@ -35,7 +35,7 @@ export const reviewsPageData = {
         "I used to work in a power plant and struggled heavily to close even a single deal when I started. Joining Dr. Amol's program fixed my mistakes, and I went on to earn a 9-figure property commission!",
       result: "9-figure property commission",
       thumbnail:
-        "https://dramolmourya.com/wp-content/uploads/2026/05/photo_2026-05-25_19-00-43-1024x682.jpg",
+        "/images/photo_2026-05-25_19-00-43-1024x682.jpg",
       videoUrl: "",
     },
     {
@@ -45,7 +45,7 @@ export const reviewsPageData = {
         "I spent lakhs on different business coachings but got zero results. Joining Dr. Amol's community changed everything— it helped my marketing agency scale to over 50 Cr+ in a single year, and now I never miss a single RGC event!",
       result: "Scaled to 50 Cr+",
       thumbnail:
-        "https://dramolmourya.com/wp-content/uploads/2026/05/photo_2026-05-25_19-00-51-1024x682.jpg",
+        "/images/photo_2026-05-25_19-00-51-1024x682.jpg",
       videoUrl: "",
     },
   ],

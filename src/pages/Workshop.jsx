@@ -18,7 +18,6 @@ import WorkshopComparison from "../components/sections/workshop/WorkshopComparis
 import WorkshopFAQ from "../components/sections/workshop/WorkshopFAQ";
 import WorkshopCTA from "../components/sections/workshop/WorkshopCTA";
 import WaitlistModal from "../components/sections/workshop/WaitlistModal";
-import RegistrationModal from "../components/sections/workshop/RegistrationModal";
 
 // Icons mapping for features
 const featureIcons = [
@@ -41,14 +40,14 @@ const targetAudience = [
 ];
 
 const galleryImages = [
-  "https://leadmachine.dramolmourya.com/wp-content/uploads/2026/07/6255951030537359283.jpg",
-  "https://leadmachine.dramolmourya.com/wp-content/uploads/2026/07/6255951030537359284.jpg",
-  "https://leadmachine.dramolmourya.com/wp-content/uploads/2026/07/6255951030537359285.jpg",
-  "https://leadmachine.dramolmourya.com/wp-content/uploads/2026/07/6255951030537359286.jpg",
-  "https://leadmachine.dramolmourya.com/wp-content/uploads/2026/07/6255951030537359287.jpg",
-  "https://leadmachine.dramolmourya.com/wp-content/uploads/2026/07/6255951030537359288.jpg",
-  "https://leadmachine.dramolmourya.com/wp-content/uploads/2026/07/6255951030537359289.jpg",
-  "https://leadmachine.dramolmourya.com/wp-content/uploads/2026/07/6255951030537359290.jpg",
+  "/images/6255951030537359283.jpg",
+  "/images/6255951030537359284.jpg",
+  "/images/6255951030537359285.jpg",
+  "/images/6255951030537359286.jpg",
+  "/images/6255951030537359287.jpg",
+  "/images/6255951030537359288.jpg",
+  "/images/6255951030537359289.jpg",
+  "/images/6255951030537359290.jpg",
 ];
 
 const coachStats = [
@@ -63,10 +62,10 @@ const coachStats = [
 ];
 
 const missionImages = [
-  "https://leadmachine.dramolmourya.com/wp-content/uploads/2024/11/edit-for-webiste-13.jpg",
-  "https://leadmachine.dramolmourya.com/wp-content/uploads/2024/11/edit-for-webiste-3.jpg",
-  "https://leadmachine.dramolmourya.com/wp-content/uploads/2024/11/edit-for-webiste-6.jpg",
-  "https://leadmachine.dramolmourya.com/wp-content/uploads/2025/12/photo_2025-08-07_11-08-37.jpg"
+  "/images/edit-for-webiste-13.jpg",
+  "/images/edit-for-webiste-3.jpg",
+  "/images/edit-for-webiste-6.jpg",
+  "/images/photo_2025-08-07_11-08-37.jpg"
 ];
 
 const benefits = [
@@ -111,7 +110,6 @@ export default function Workshop() {
   const [workshopDate, setWorkshopDate] = useState(null);
   const [workshopLocation, setWorkshopLocation] = useState('NAGPUR, MAHARASHTRA');
   const [workshopId, setWorkshopId] = useState(null);
-  const [isRegistrationModalOpen, setIsRegistrationModalOpen] = useState(false);
 
   useEffect(() => {
     async function fetchDate() {
@@ -171,7 +169,7 @@ export default function Workshop() {
         formattedDate={formattedDate}
         formattedTime={formattedTime}
         workshopDate={workshopDate}
-        onWaitlistClick={() => setIsRegistrationModalOpen(true)}
+        onWaitlistClick={() => window.location.href = "https://leadmachine.dramolmourya.com/index.php/workshop/"}
       />
       
       <WorkshopFeatures workshop={workshop} featureIcons={featureIcons} />
@@ -185,13 +183,8 @@ export default function Workshop() {
       <WorkshopBenefits benefits={benefits} />
       <WorkshopComparison doNotEnroll={doNotEnroll} mustEnroll={mustEnroll} />
       <WorkshopFAQ faqData={faqData} />
-      <WorkshopCTA onWaitlistClick={() => setIsRegistrationModalOpen(true)} />
+      <WorkshopCTA onWaitlistClick={() => window.location.href = "https://leadmachine.dramolmourya.com/index.php/workshop/"} />
 
-      <RegistrationModal 
-        isOpen={isRegistrationModalOpen} 
-        onClose={() => setIsRegistrationModalOpen(false)} 
-        workshopId={workshopId}
-      />
     </div>
   );
 }

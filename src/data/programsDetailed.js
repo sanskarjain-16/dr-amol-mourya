@@ -5,7 +5,7 @@ export const detailedPrograms = [
     subtitle: "2-Month Live Execution Track",
     description: "Stop surviving deal-to-deal. Get a clear step-by-step system to handle buyers, close fast property sales, and secure a steady monthly income.",
     whoIsFor: "Real Estate Agents, Brokers, Channel Partners, and Freshers or Real Estate Enthusiasts.",
-    image: "https://dramolmourya.com/wp-content/uploads/2026/05/Rgc-Champions-Launchpad-Banner-1024x1024.png",
+    image: "/images/Rgc-Champions-Launchpad-Banner-1024x1024.png",
     primaryCta: {
       label: "Register For Next Batch",
       href: "/workshop"
@@ -39,7 +39,7 @@ export const detailedPrograms = [
     subtitle: "1-Year Advanced Growth Coaching",
     description: "Get full 12-month handholding to transition from an individual operator into a dominant regional market leader with a highly profitable company.",
     whoIsFor: "Real Estate Marketing Agency Owners, Team Leaders and Professionals already working in Real Estate.",
-    image: "https://dramolmourya.com/wp-content/uploads/2026/05/photo_3_2026-05-22_14-29-22-1024x1024.jpg",
+    image: "/images/photo_3_2026-05-22_14-29-22-1024x1024.jpg",
     primaryCta: {
       label: "Enquire Now",
       action: "enquire"
@@ -73,7 +73,7 @@ export const detailedPrograms = [
     subtitle: "3-to-4 Month Private 1-on-1 Advisory",
     description: "A highly private, boardroom-level strategic engagement with Dr. Amol Mourya to restructure your finances, optimize fields, and maximize company equity.",
     whoIsFor: "Big Builders, Property Developers, and Real Estate Company CEOs with a minimum turnover of 1 Crore+.",
-    image: "https://dramolmourya.com/wp-content/uploads/2026/05/photo_1_2026-05-22_14-29-22-1024x1024.jpg",
+    image: "/images/photo_1_2026-05-22_14-29-22-1024x1024.jpg",
     primaryCta: {
       label: "Enquire Now",
       action: "enquire"
@@ -107,7 +107,7 @@ export const detailedPrograms = [
     subtitle: "On-Site Team Implementation Program",
     description: "Stop relying on superstar employees. Install a repeatable, system-driven machinery across your departments to scale property bookings automatically.",
     whoIsFor: "Established Real Estate Companies with a minimum turnover of 25 Crores+ and at least 15–20 active employees.",
-    image: "https://dramolmourya.com/wp-content/uploads/2026/05/Website-Box-4-1024x1024.png",
+    image: "/images/Website-Box-4-1024x1024.png",
     primaryCta: {
       label: "Enquire Now",
       action: "enquire"
@@ -141,7 +141,7 @@ export const detailedPrograms = [
     subtitle: "Elite Corporate Auditing Track",
     description: "Built exclusively for mega real estate companies whose business is already running well, but want to catch hidden operational leaks, eliminate staff performance gaps, and secure absolute market dominance.",
     whoIsFor: "Large Scale Developers, Corporate Real Estate Houses, and Conglomerates with a minimum turnover of 100 Crores+.",
-    image: "https://dramolmourya.com/wp-content/uploads/2026/05/System-Consultation-1024x1024.png",
+    image: "/images/System-Consultation-1024x1024.png",
     primaryCta: {
       label: "Enquire Now",
       action: "enquire"

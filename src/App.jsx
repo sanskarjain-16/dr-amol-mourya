@@ -12,7 +12,6 @@ const Programs = lazy(() => import("./pages/Programs"));
 const Reviews = lazy(() => import("./pages/Reviews"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Workshop = lazy(() => import("./pages/Workshop"));
-const WorkshopSuccess = lazy(() => import("./pages/WorkshopSuccess"));
 
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
@@ -76,7 +75,6 @@ function App() {
                 <Route path="/reviews/*" element={<Reviews />} />
                 <Route path="/contact/*" element={<Contact />} />
                 <Route path="/workshop" element={<Workshop />} />
-                <Route path="/workshop/success" element={<WorkshopSuccess />} />
               </Route>
               
               <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />

@@ -21,7 +21,7 @@ export default function WorkshopLearn() {
               <div className="relative z-10 max-w-md mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full blur-3xl opacity-20 -z-10 transform scale-90"></div>
                 <img 
-                  src="https://leadmachine.dramolmourya.com/wp-content/uploads/elementor/thumbs/542x770-dr-amol-sir-rfcw3uzw0vscrzvcjknvv7wjlfufr4tntp10rfvwrk.png" 
+                  src="/images/542x770-dr-amol-sir-rfcw3uzw0vscrzvcjknvv7wjlfufr4tntp10rfvwrk.png" 
                   alt="Dr. Amol Mourya" 
                   className="w-full h-auto rounded-3xl shadow-2xl border-4 border-white object-cover"
                   style={{ aspectRatio: "542/770" }}
